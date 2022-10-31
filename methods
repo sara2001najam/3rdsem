@@ -1,0 +1,135 @@
+  class program
+    {
+        static int[,] addMatrix(int[,] array, int[,] array2)
+        {
+            int n = array.GetLength(0);
+
+            int[,] array4 = new int[n, n];
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    array4[i, j] = array[i, j] + array2[i, j];
+
+                }
+            }
+
+            return array4;
+        }
+
+        static int[,] SubtractMatrix(int[,] array, int[,] array2)
+        {
+            int n = array.GetLength(0);
+
+            int[,] array5 = new int[n, n];
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    array5[i, j] = array[i, j] - array2[i, j];
+
+                }
+            }
+
+            return array5;
+        }
+
+
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Matrix 1");
+            //Matrix 1
+            int i, j, n;
+
+            Console.WriteLine("Enter size of matrix: ");
+            n = Convert.ToInt32(Console.ReadLine());
+            i = 0;
+            j = 0;
+
+            int[,] array = new int[n, n];
+
+            for (i = 0; i < n; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    Console.WriteLine("enter value for index [{0}, {1}] : ", i, j);
+
+                    array[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            for (int r = 0; r < array.GetLength(0); r++)
+            {
+                for (int c = 0; c < array.GetLength(1); c++)
+                {
+                    Console.Write("\t{0}", array[r, c]);
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("Matrix 2");
+
+            Console.WriteLine();
+            //Matrix 2
+
+
+
+
+            int[,] array2 = new int[n, n];
+
+            for (int r = 0; r < n; r++)
+            {
+                for (int c = 0; c < n; c++)
+                {
+                    Console.WriteLine("enter value for index [{0}, {1}] : ", r, c);
+
+                    array2[r, c] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            for (int r = 0; r < array2.GetLength(0); r++)
+            {
+                for (int c = 0; c < array2.GetLength(1); c++)
+                {
+                    Console.Write("\t{0}", array2[r, c]);
+                }
+                Console.WriteLine();
+            }
+
+            int total = 0;
+            total = addMatrix(array[i, j], array2[i, j]);
+            Console.WriteLine("Sum: ");
+            for (i = 0; i < n; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    Console.Write("\t{0}", total);
+
+                }
+                Console.WriteLine();
+            }
+
+            int difference = 0;
+            difference = SubtractMatrix(array[i, j], array2[i, j]);
+            Console.WriteLine("Difference: ");
+            for (i = 0; i < n; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    Console.Write("\t{0}", difference);
+
+                }
+                Console.WriteLine();
+
+
+            }
+        }
+
+    }
